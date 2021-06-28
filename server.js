@@ -4,6 +4,7 @@
 // init project
 var express = require('express');
 var app = express();
+var dayjs = require('dayjs');
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC 
@@ -21,9 +22,15 @@ app.get("/", function (req, res) {
 
 // API date checker endpoint
 app.get("/api/:date", function (req, res) {
-  
-});
+  let inputDate = req.params.date;
+  if (!req.params.date) {
 
+  } else if (dayjs(inputDate).isValid()) {
+    // TODO
+  } else {
+    
+  }
+});
 
 
 // listen for requests :)
